@@ -1,0 +1,226 @@
+﻿@model Matrix.Core.Application.DTOs.EditTradeWarranty
+
+
+
+<div class="modal fade" id="addModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Trade Warranty</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="formTopbar">
+                    <div class=" ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Transaction Number
+                                    </div>
+                                    <input type="text" asp-for="TransactionNumber" id="transactionNo" class="form-control" placeholder=""
+                                           disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Transaction Date
+                                    </div>
+                                    <input type="date" asp-for="TransactionDate" id="transactionDate" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-2 txtSize">
+                                        Model ID
+                                    </div>
+
+                                    <select class="modelID" asp-for="ModelID" id="modelid" style="width: 632px; border: 1px solid red;"></select>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class=" txtSize">
+
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div>
+                            </div> -->
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Warranty Period
+                                    </div>
+                                    <input type="text" asp-for="WarrantyPeriod" id="warrantyperiod" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Warranty From
+                                    </div>
+                                    <input type="date" asp-for="WarrantyFrom" id="warrantyfrom" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Warranty Upto
+                                    </div>
+                                    <input type="date" asp-for="WarrantyUpto" id="warrantyupto" class="form-control" placeholder="">
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Cash Back
+                                    </div>
+                                    <input type="number" asp-for="CashBack" id="cashback" class="form-control"
+                                           placeholder="">
+                                </div>
+                            </div>
+                            <div class="card" style="max-height: 168px; overflow-y: auto; border: none;">
+                                <div id="spreadsheet"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Remarks*
+                                </div>
+                                <textarea class="form-control" id="remarks" rows="3"
+                                          placeholder="remarks"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary m-2 col-md-2" id="btnsubmit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //------------------Edit Trade Warranty---------------
+
+    $('#btnsubmit').on('click', async function (e) {
+        var data = {
+            TransactionDate: $("#transactionDate").val(),
+            ModelID: $("#modelid").val(),
+            WarrantyPeriod: $("#warrantyperiod").val(),
+            WarrantyFrom: $("#warrantyfrom").val(),
+            WarrantyUpto: $("#warrantyupto").val(),
+            CashBack: $("#cashback").val(),
+            Remarks: $("#remarks").val(),
+            LineItems: getLineItem()
+        }
+        $.ajax({
+            "url": '@Url.Action("Edit","TradeWarranty")',
+            "type": "post",
+            "data": { req: data },
+            "datatype": "json",
+            "success": function (resp) {
+                if (resp.hasError) {
+                    console.log(resp.hasError)
+                    toastr.error("Please Fill The Form");
+                }
+                else {
+                    $('#btnsubmit').attr("disabled", true);
+                    Swal.fire({
+                        title: "Updated!",
+                        text: "Your record has been Updated.",
+                        icon: "success"
+                    });
+                    $('#Tabletradewarranty').DataTable().ajax.reload();
+                    $("#addModalCenter").modal('hide');
+                }
+            }
+        })
+        loader(target, false);
+
+    });
+
+
+    var getLineItem = () => {
+        var lineItem = [];
+        data2.forEach(function (item) {
+            if (item[0] != '' && item[2] != '' && item[3] != '' && item[5] != '')
+                lineItem.push({ "ModelID": item[0], "QTY": item[2], "Rate": item[3], "WareHouseID": item[5] });
+        });
+        return lineItem;
+    }
+
+    //-------------- jspreadsheet --------------
+    var data2 = [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ];
+
+    var myTable;
+
+    var data = [
+        { type: 'numeric', title: 'Serial Number', width: 110, mask: '000' },
+        { type: 'numeric', title: 'IMEI Number', width: 140 },
+        { type: 'numeric', title: 'MSN Number', width: 100, mask: '000,000,000,000,000,00' },
+        { type: 'date', title: 'Start Date', width: 100, mask: '000,000,000,000,000,00' },
+        { type: 'date', title: 'End Date', width: 100, mask: '000,000,000,000,000,00' },
+        { type: 'text', title: 'Serial Key', width: 150 }
+    ];
+    myTable = jspreadsheet(document.getElementById('spreadsheet'), {
+        data: data2,
+        columns: data,
+        allowInsertColumn: false,
+        onchange: function (event, obj, index, row, changedValue, e, f) {
+            if (index == "0")
+                GetModelName(row, changedValue);
+            if (index == "5")
+                GetWarehouseName(row, changedValue);
+        },
+
+    });
+
+    function GetModelName(row, val) {
+
+        $.ajax({
+            url: "../JSON/jspreadsheet.json",
+            type: "GET",
+            data: { "modelID": val },
+            success: function (resp) {
+
+                if (resp != null && resp.material) {
+                    data2[row][1] = resp.material;
+                    myTable.refresh();
+                }
+
+            }
+        });
+    }
+    function GetWarehouseName(row, val) {
+
+        $.ajax({
+            url: "../JSON/jspreadsheet.json",
+            type: "GET",
+            data: { "modelID": val },
+            success: function (resp) {
+
+                if (resp != null && resp.material) {
+                    data2[row][6] = resp.material;
+                    myTable.refresh();
+                }
+
+            }
+        });
+    }
+
+</script>

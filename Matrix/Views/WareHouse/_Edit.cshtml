@@ -1,0 +1,97 @@
+﻿@model Matrix.Core.Application.DTOs.EditWarehouse
+
+<div class="modal fade" id="addModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Warehouse</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="formTopbar">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Warehouse Name
+                                </div>
+                                <input type="hidden" id="warehouseID" asp-for="WarehouseID" />
+                                <input asp-for="WarehouseName" type="text" class="form-control warehouseName" id="warehouseName" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" asp-for="IsActive" role="switch" id="switchbtn">
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary m-2" id="btnsubmit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //------------------Edit Warehouse---------------
+
+    $('#btnsubmit').on('click', async function (e) {
+        var data = {
+            WareHouseID: $("#warehouseID").val(),
+            WarehouseName: $("#warehouseName").val(),
+            IsActive: $("#switchbtn").is(":checked")
+        }
+        let isAllowed = true;
+        let target = e.currentTarget;
+        loader(target, true);
+        if (!$("#switchbtn").is(":checked")) {
+            // SweetAlert2 confirmation dialog
+            await Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#0069d9",
+                cancelButtonColor: "#dc3545",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (!result.isConfirmed) {
+                    isAllowed = false;
+                    return;
+                }
+            });
+        }
+        if (isAllowed) {
+            $.ajax({
+                "url": '@Url.Action("Edit", "Warehouse")',
+                "type": "POST",
+                "data": { req: data },
+                "datatype": "json",
+                success: function (resp) {
+                    if (!$("#switchbtn").is(":checked")) {
+                        // Show success message
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    }
+                    $('#warehouseTable').DataTable().ajax.reload();
+                    $("#addModalCenter").modal('hide');
+                    // Check if the switch button is checked
+
+                }
+            });
+        }
+        loader(target, false);
+
+    });
+
+</script>

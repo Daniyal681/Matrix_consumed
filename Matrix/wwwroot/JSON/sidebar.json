@@ -1,0 +1,100 @@
+[
+
+  {
+    "ID": "0",
+    "name": "Trade Warranty",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/tradeWarranty/index",
+    "parentID": ""
+  },
+  {
+    "ID": "1",
+    "name": "Import Managment",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/localpurchase/index",
+    "parentID": ""
+  },
+  {
+    "ID": "2",
+    "name": "Warehouse",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/warehouse/index",
+    "parentID": ""
+  },
+  {
+    "ID": "3",
+    "name": "Supplier",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/supplier/index",
+    "parentID": ""
+  },
+  {
+    "ID": "4",
+    "name": "Bank",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/bank/index",
+    "parentID": ""
+  },
+  {
+    "ID": "4",
+    "name": "Model",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/model/index",
+    "parentID": ""
+  },
+  {
+    "ID": "5",
+    "name": "Customer",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/customer/index",
+    "parentID": ""
+  },
+  {
+    "ID": "6",
+    "name": "Cash Managment",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/CashManagment/index",
+    "parentID": ""
+  },
+  {
+    "ID": "7",
+    "name": "Bank Transaction",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/BankTransaction/index",
+    "parentID": ""
+  },
+  {
+    "ID": "8",
+    "name": "Brands",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/brands/index",
+    "parentID": ""
+  },
+  {
+    "ID": "9",
+    "name": "Categories",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/categories/index",
+    "parentID": ""
+  },
+  {
+    "ID": "10",
+    "name": "Stock",
+    "icon": "",
+    "hasChildren": false,
+    "url": "/stock/index",
+    "parentID": ""
+  }
+
+]

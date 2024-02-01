@@ -1,0 +1,286 @@
+﻿@model Matrix.Core.Application.DTOs.EditLocalPurchase
+
+
+
+<div class="modal fade" id="addModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Local Purchase</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="formTopbar">
+                    <div class=" ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Transaction No
+                                    </div>
+                                    <input asp-for="RecID" type="hidden" id="recid" />
+                                    <input asp-for="TransactionNo" id="transactionNo" type="text" class="form-control" placeholder=""
+                                           disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Transaction Date
+                                    </div>
+                                    <input asp-for="TransactionDate" id="transactiondate" type="date" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Supplier
+                                    </div>
+                                    <input asp-for="SupplierID" id="supplierid" type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Supplier Name
+                                    </div>
+                                    <input asp-for="SupplierName" id="supplierName" type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Supplier Invoice#
+                                    </div>
+                                    <input asp-for="SupplierInvoiceNo" id="supplierinvoiceNo" type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Invoice Date
+                                    </div>
+                                    <input asp-for="InvoiceDate" id="invoicedate" type="date" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+
+                                <div class="card"
+                                     style="max-height: 168px; overflow-y: auto; border: none;">
+                                    <div id="spreadsheet"></div>
+                                </div>
+
+                                <br>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-4 txtSize">
+                                        Payment Due Date
+                                    </div>
+                                    <input asp-for="PaymentDueDate" id="paymentduedate" type="date" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <div class="input-group input-group-sm mb-3">
+                                    <input type="number" class="form-control"
+                                           placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 my-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-3 txtSize">
+                                        Remarks*
+                                    </div>
+                                    <textarea asp-for="Remarks" id="remarks" class="form-control" rows="4"
+                                              placeholder="remarks"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-3 txtSize">
+                                        Other
+                                    </div>
+                                    <input asp-for="Other" id="other" type="number" class="form-control"
+                                           placeholder="">
+                                    <div class="input-group-text col-sm-2 txtSize">
+                                        (+)
+                                    </div>
+                                </div>
+
+
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-3 txtSize">
+                                        Discount
+                                    </div>
+                                    <input asp-for="Discount" id="discount" type="number" class="form-control"
+                                           placeholder="">
+                                    <div class="input-group-text col-sm-2 txtSize">
+                                        (-)
+                                    </div>
+                                </div>
+
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-text col-sm-3 txtSize">
+                                        Total
+                                    </div>
+                                    <input asp-for="Total" id="total" type="number" class="form-control"
+                                           placeholder="">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" style="display:block">
+                <div class="row">
+                    @* <div class="pull-left col-lg-6">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" asp-for="IsActive" role="switch" id="switchbtn">
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                        </div>
+                    </div> *@
+                    <div class="col-lg-12">
+                        <button type="button" class="btn btn-primary m-2 col-md-4 float-end" id="btnsubmit">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //------------------Edit LocalPurchase---------------
+
+    $('#btnsubmit').on('click', async function (e) {
+        var data = {
+            RecID: $("#recid").val(),
+            TransactionDate: $("#transactiondate").val(),
+            SupplierID: $("#supplierid").val(),
+            SupplierName: $("#supplierName").val(),
+            SupplierInvoiceNo: $("#supplierinvoiceNo").val(),
+            InvoiceDate: $("#invoicedate").val(),
+            PaymentDueDate: $("#paymentduedate").val(),
+            Remarks: $("#remarks").val(),
+            Other: $("#other").val(),
+            Discount: $("#discount").val(),
+            Total: $("#total").val(),
+            LineItems: getLineItem()
+
+        }
+        $.ajax({
+            "url": '@Url.Action("Edit","LocalPurchase")',
+            "type": "post",
+            "data": { req: data },
+            "datatype": "json",
+            "success": function (resp) {
+                if (resp.hasError) {
+                    console.log(resp.hasError)
+                    toastr.error("Please Fill The Form");
+                }
+                else {
+                    $('#btnsubmit').attr("disabled", true);
+                    Swal.fire({
+                        title: "Updated!",
+                        text: "Your record has been Updated.",
+                        icon: "success"
+                    });
+                    $("#addModalCenter").modal('hide');
+                    $('#TableLocalPurchase').DataTable().ajax.reload();
+                }
+            }
+        })
+        loader(target, false);
+
+    });
+
+
+    var getLineItem = () => {
+        var lineItem = [];
+        data2.forEach(function (item) {
+            if (item[0] != '' && item[2] != '' && item[3] != '' && item[5] != '')
+                lineItem.push({ "ModelID": item[0], "QTY": item[2], "Rate": item[3], "WareHouseID": item[5] });
+        });
+        return lineItem;
+    }
+
+    //-------------- jspreadsheet --------------
+    var data2 = [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ];
+
+    var myTable;
+
+    var data = [
+        { type: 'numeric', title: '\xa0', width: 40, mask: '000' },
+        { type: 'text', title: 'Model ID & Description', width: 190 },
+        { type: 'numeric', title: 'Quantity', width: 70, mask: '' },
+        { type: 'numeric', title: 'Rate/Unit', width: 75, mask: '' },
+        { type: 'numeric', title: 'Amount', width: 95, mask: '' },
+        { type: 'numeric', title: '\xa0', width: 40, mask: '000' },
+        { type: 'text', title: 'Warehouse', width: 190 }
+    ];
+    myTable = jspreadsheet(document.getElementById('spreadsheet'), {
+        data: data2,
+        columns: data,
+        allowInsertColumn: false,
+        onchange: function (event, obj, index, row, changedValue, e, f) {
+            if (index == "0")
+                GetModelName(row, changedValue);
+            if (index == "5")
+                GetWarehouseName(row, changedValue);
+        },
+
+    });
+
+    function GetModelName(row, val) {
+
+        $.ajax({
+            url: "../JSON/jspreadsheet.json",
+            type: "GET",
+            data: { "modelID": val },
+            success: function (resp) {
+
+                if (resp != null && resp.material) {
+                    data2[row][1] = resp.material;
+                    myTable.refresh();
+                }
+
+            }
+        });
+    }
+    function GetWarehouseName(row, val) {
+
+        $.ajax({
+            url: "../JSON/jspreadsheet.json",
+            type: "GET",
+            data: { "modelID": val },
+            success: function (resp) {
+
+                if (resp != null && resp.material) {
+                    data2[row][6] = resp.material;
+                    myTable.refresh();
+                }
+
+            }
+        });
+    }
+
+
+</script>

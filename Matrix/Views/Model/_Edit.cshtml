@@ -1,0 +1,99 @@
+﻿@model Matrix.Core.Application.DTOs.EditModel
+
+
+
+<div class="modal fade fullModal" id="addModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLongTitle">Edit Model</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="formTopbar">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Model Name
+                                </div>
+                                <input type="hidden" id="modelid" asp-for="ModelID" />
+                                <input asp-for="ModelName" type="text" class="form-control modelName" id="modelname" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" asp-for="IsActive" role="switch" id="switchbtn">
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="btn btn-primary btn-block editmodel" id="btnsubmit">
+                                Edit Model
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //------------------Edit Banks---------------
+
+    $('#btnsubmit').on('click', async function (e) {
+        var data = {
+            ModelID: $("#modelid").val(),
+            ModelName: $("#modelname").val(),
+            IsActive: $("#switchbtn").is(":checked")
+        }
+        let isAllowed = true;
+        let target = e.currentTarget;
+        loader(target, true);
+        if (!$("#switchbtn").is(":checked")) {
+            // SweetAlert2 confirmation dialog
+            await Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#0069d9",
+                cancelButtonColor: "#dc3545",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (!result.isConfirmed) {
+                    isAllowed = false;
+                    return;
+                }
+            });
+        }
+        if (isAllowed) {
+            $.ajax({
+                "url": '@Url.Action("Edit", "Model")',
+                "type": "POST",
+                "data": { req: data },
+                "datatype": "json",
+                success: function (resp) {
+                    if (!$("#switchbtn").is(":checked")) {
+                        // Show success message
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    }
+                    $('#modeltable').DataTable().ajax.reload();
+                    $("#addModalCenter").modal('hide');
+                    // Check if the switch button is checked
+                
+                }
+            });
+        }
+        loader(target, false);
+        
+    });
+</script>

@@ -1,0 +1,147 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Matrix
+build_property.RootNamespace = Matrix
+build_property.ProjectDir = D:\Matrix-dev\Matrix-dev\Matrix\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Matrix-dev\Matrix-dev\Matrix
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/BankTransaction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua1RyYW5zYWN0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Bank/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Bank/_Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua1xfQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Bank/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua1xfRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Brands/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/CashManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FzaE1hbmFnZW1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Customer/_Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcX0FkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Customer/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcX0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/LocalPurchase/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxQdXJjaGFzZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/LocalPurchase/_Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxQdXJjaGFzZVxfQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/LocalPurchase/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxQdXJjaGFzZVxfRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Model/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Model/_Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxcX0FkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Model/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxcX0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Stock/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Supplier/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Supplier/_Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcX0FkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Supplier/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcX0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/TradeWarranty/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVXYXJyYW50eVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/TradeWarranty/_Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVXYXJyYW50eVxfQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/TradeWarranty/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGVXYXJyYW50eVxfRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/WareHouse/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZUhvdXNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/WareHouse/_Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZUhvdXNlXF9BZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/WareHouse/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZUhvdXNlXF9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Matrix-dev/Matrix-dev/Matrix/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-m1hi93dp14

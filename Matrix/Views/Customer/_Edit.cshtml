@@ -1,0 +1,543 @@
+﻿@model Matrix.Core.Application.DTOs.GetCustomerDetails
+
+
+<div class="modal fade" id="addModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="ModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLongTitle">Edit Detail Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="formTopbar">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group input-group-sm mb-3 ">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Customer Name
+                                </div>
+                                <input type="text" class="form-control col-sm-2" asp-for="CustomerID" id="customerID"
+                                       placeholder="345">
+                                <input type="text" class="form-control" asp-for="CustomerName" id="customerName" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Control Account
+                                </div>
+                                <input type="text" class="form-control col-sm-2" id="controlAccountID" asp-for="ControlAccountID"
+                                       placeholder="345">
+                                <input type="text" class="form-control" id="controlAccount" asp-for="ControlAccount" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Detail Account
+                                </div>
+                                <input type="text" class="form-control col-sm-2" id="detailAccountID" asp-for="DetailAccountID"
+                                       placeholder="345">
+                                <input type="text" class="form-control" asp-for="DetailAccount" id="detailAccount" placeholder="">
+
+                            </div>
+                            <div class="input-group input-group-sm mb-1">
+                                <div class="input-group-text col-sm-4"
+                                     style="font-size: 12px;">
+                                    Account Type
+                                </div>
+                                <select class="form-select form-select-sm" id="accountType" asp-for="AccountType"
+                                        aria-label=".form-select-sm ">
+                                    <option selected>All</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    <option value="3">Four</option>
+                                    <option value="4">Five</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- <div class="form-check form-switch m-3">
+                            Active &nbsp
+                            <input type="checkbox" data-toggle="switchbutton" checked
+                                data-onstyle="outline-primary" checked data-onlabel="Yes"
+                                data-offlabel="No" checked data-size="s">
+                        </div> -->
+
+
+                        <div class="form-check form-switch px-5 py-4 col-md-4">
+                            <input class="form-check-input" type="checkbox"
+                                   id="switchbtn" checked>
+                            <label class="form-check-label">&nbsp Active</label>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-light btn-md"
+                        data-bs-target="#ModalToggleEdit" data-bs-toggle="modal" id="details"
+                        data-bs-dismiss="modal">
+                    Details <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 2 -->
+
+<div class="modal fade" id="ModalToggleEdit" aria-hidden="true"
+     aria-labelledby="ModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="ModalToggleLabel2">Edit Customer Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card" id="modalcard">
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Account Code
+                                </div>
+                                <input type="text" class="form-control col-sm-2" asp-for="AccountID" id="accountID"
+                                       placeholder="">
+                                <input type="text" class="form-control" id="accountName" asp-for="AccountCode" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Business Name
+                                </div>
+                                <input type="text" class="form-control" id="businessName" asp-for="BusinessName" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Contact Person
+                                </div>
+                                <input type="text" class="form-control" id="contactPerson" asp-for="ContactPerson" placeholder="">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text"
+                                             style="font-size: 11px;">
+                                            Account
+                                        </div>
+                                        <select class="form-select form-select-sm" id="account" asp-for="Account"
+                                                aria-label=".form-select-sm ">
+                                            <option selected>All</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option value="3">Four</option>
+                                            <option value="4">Five</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text txtSize">
+                                            Doc Number
+                                        </div>
+                                        <input type="text" class="form-control" id="docNumber" asp-for="DocNumber"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text"
+                                             style="font-size: 11px;">
+                                            Status
+                                        </div>
+                                        <select class="form-select form-select-sm" id="status" asp-for="Status"
+                                                aria-label=".form-select-sm ">
+                                            <option selected>All</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option value="3">Four</option>
+                                            <option value="4">Five</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text"
+                                             style="font-size: 11px;">
+                                            Agreement
+                                        </div>
+                                        <select class="form-select form-select-sm" id="agreement" asp-for="Agreement"
+                                                aria-label=".form-select-sm ">
+                                            <option selected>All</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option value="3">Four</option>
+                                            <option value="4">Five</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card" id="modalcard">
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Address
+                                </div>
+                                <input type="text" class="form-control" id="address" asp-for="Address" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Area
+                                </div>
+                                <input type="text" class="form-control col-sm-2" id="areaID" asp-for="AreaID" 
+                                       placeholder="">
+                                <input type="text" class="form-control" id="areaCode" asp-for="AreaCode" placeholder="">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text col-sm-4 txtSize">
+                                            City
+                                        </div>
+                                        <input type="text" class="form-control" id="city" asp-for="City"
+                                               placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text col-sm-4 txtSize">
+                                            State
+                                        </div>
+                                        <input type="text" class="form-control" id="state" asp-for="State"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text col-sm-4 txtSize">
+                                            Cluster
+                                        </div>
+                                        <input type="text" class="form-control" id="cluster" asp-for="Cluster"
+                                               placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text col-sm-5 txtSize">
+                                            Country
+                                        </div>
+                                        <input type="text" class="form-control" id="country" asp-for="Country"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Phone
+                                </div>
+                                <input type="text" class="form-control" id="phone" asp-for="Phone" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Mobile
+                                </div> 
+                                <input type="text" class="form-control" id="mobile" asp-for="Mobile" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Email
+                                </div>
+                                <input type="text" class="form-control" id="email" asp-for="Email" placeholder="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="row mt-3"> -->
+                    <div class="col-md-6" style="margin-top: -6%;">
+                        <div class="card" id="modalcard">
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Principle ID
+                                </div>
+                                <input type="text" class="form-control" id="principleID" asp-for="PrincipleID" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Principle Name
+                                </div>
+                                <input type="text" class="form-control" id="principleName" asp-for="PrincipleName" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <h6>&nbsp Taxation</h6>
+                        <div class="card" id="modalcard">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text col-sm-4 txtSize">
+                                            CNIC
+                                        </div>
+                                        <input type="text" class="form-control" id="cnic" asp-for="CNIC"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text col-sm-4 txtSize">
+                                            Expiry
+                                        </div>
+                                        <input type="date" class="form-control" id="expiry" asp-for="Expiry"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text col-sm-4 txtSize">
+                                            NTN
+                                        </div>
+                                        <input type="text" class="form-control" id="ntn" asp-for="NTN"
+                                               placeholder="">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-text col-sm-4 txtSize">
+                                            STRN
+                                        </div>
+                                        <input type="text" class="form-control" id="strn" asp-for="STRN"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="row mt-3"> -->
+                    <div class="col-md-6" style="margin-top: -9%;">
+                        <div class="card" id="modalcard">
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4"
+                                     style="font-size: 11px;">
+                                    Kickback Allowed
+                                </div>
+                                <select class="form-select form-select-sm" id="kickbackAllowed" asp-for="KickbackAllowed"
+                                        aria-label=".form-select-sm ">
+                                    <option selected>All</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    <option value="3">Four</option>
+                                    <option value="4">Five</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Rec. Incentive
+                                </div>
+                                <input type="text" class="form-control" id="recIncentive" asp-for="RecIncentive" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4"
+                                     style="font-size: 11px;">
+                                    Kickback Method
+                                </div>
+                                <select class="form-select form-select-sm" id="kickbackMethod" asp-for="KickbackMethod"
+                                        aria-label=".form-select-sm ">
+                                    <option selected>All</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    <option value="3">Four</option>
+                                    <option value="4">Five</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Add Incentive
+                                </div>
+                                <input type="text" class="form-control" id="addIncentive" asp-for="AddIncentive" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-4 txtSize">
+                                    Sales Person
+                                </div>
+                                <input type="text" class="form-control col-sm-2" id="salePersonID" asp-for="SalesPersonID"
+                                       placeholder="345">
+                                <input type="text" class="form-control" id="salePerson" asp-for="SalesPerson" placeholder="">
+                            </div>
+
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-5 txtSize">
+                                    Credit Days
+                                </div>
+                                <input type="text" class="form-control" asp-for="CreditDays" id="creditDays" placeholder="">
+                            </div>
+
+                            <div class="input-group input-group-sm mb-2">
+                                <div class="input-group-text col-sm-5 txtSize">
+                                    Credit Limit
+                                </div>
+                                <input type="text" class="form-control" asp-for="CreditLimit" id="creditLimit" placeholder="">
+                            </div>
+
+                            <div class="form-check form-switch col-md-6">
+                                <input class="form-check-input" type="checkbox"
+                                       id="applyDiscountswitch" checked>
+                                <label class="form-check-label txtSize">
+                                    &nbsp Apply
+                                    Discount
+                                </label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    @* <div class="col-md-6 mt-3 ">
+                        <h6>&nbsp Brands</h6>
+
+                        <div class="card col-md-6 cardBrand d-flex align-items-start txtSize"
+                             id="modalcard">
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="infinix" type="checkbox">
+                                <label class="form-check-label"> Infinix </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="realme" type="checkbox">
+                                <label class="form-check-label"> Realme </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="samsung" type="checkbox">
+                                <label class="form-check-label"> Samsung </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="dell" type="checkbox">
+                                <label class="form-check-label"> Dell </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="sony" type="checkbox">
+                                <label class="form-check-label"> Sony </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="itel" type="checkbox">
+                                <label class="form-check-label"> Itel </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="tecno" type="checkbox">
+                                <label class="form-check-label"> Tecno </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="huawei" type="checkbox">
+                                <label class="form-check-label"> Huawei </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="nokia" type="checkbox">
+                                <label class="form-check-label"> Nokia </label>
+                            </div>
+
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" id="otherbrands" type="checkbox">
+                                <label class="form-check-label"> Other Brands </label>
+                            </div>
+
+                        </div>
+                    </div> *@
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-light btn-md"
+                                    data-bs-target="#addModalCenter" data-bs-toggle="modal" id="details"
+                                    data-bs-dismiss="modal">
+                                <i class="fa-solid fa-chevron-left"></i> Previous Page
+                            </button>
+                        </div>
+                        <div class="col-md-8"></div>
+
+                        <div class="col-md-2">
+                            <button type="button" id="btnsubmitedit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+
+   
+
+    $("#areaID").on("keypress", function (e) {
+        let AreaID = $('#areaID').val() + e.originalEvent.key;
+        $.ajax({
+            url: '@Url.Action("GetAreaByID", "Customer")',
+            type: "Get",
+            data: { AreaID: AreaID },
+            success: function (resp) {
+                if (!resp.hasError)
+                    $("#areaCode").val(resp.response.areaName);
+                else {
+                    $("#areaCode").val('');
+                }
+
+            }
+        })
+    })
+</script>
